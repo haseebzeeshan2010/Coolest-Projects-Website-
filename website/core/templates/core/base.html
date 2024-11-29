@@ -5,23 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>{% block title %}{% endblock %} | Puddle</title>
+    <title>{% block title %}{% endblock %} | FoodTailor</title>
 </head>
 <body>
-    <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200 bg-orange-100">
-        <div class="space-x-6">
-            <a href="/" class="text-xl font-semibold text-gray-400">RecipeMate</a>
-            <a href="#" class="text-lg font-semibold hover:text-gray-500">New recipe</a>
-            <a href="#" class="text-lg font-semibold hover:text-gray-500">Browse</a>
-        </div>
-        <div class="space-x-6">
+
+	<nav class="relative px-4 py-4 flex justify-between items-center bg-amber-50 border-b-4 border-b-amber-100">
+        <a href="/" class="text-xl pl-2 font-extrabold text-zinc-700">FoodTailor</a>		<div class="lg:hidden">
+			<button class="navbar-burger flex items-center text-zinc-700 p-3">
+				<svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<title>Mobile menu</title>
+					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+				</svg>
+			</button>
+		</div>
+		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-3">
+			<li><a class="py-2 px-3 hover:bg-orange-100 text-sm text-gray-500 rounded-xl transition duration-400" href="#">Home</a></li>
+
+			<li><a class="py-2 px-3 hover:bg-orange-100 text-sm text-gray-500 rounded-xl transition duration-400" href="#">New Recipe</a></li>
+
+			<li><a class="py-2 px-3 hover:bg-orange-100 text-sm text-gray-500 rounded-xl transition duration-400" href="#">Browse Recipes</a></li>
+
+			<li><a class="py-2 px-3 hover:bg-orange-100 text-sm text-gray-500 rounded-xl transition duration-400" href="#">Contact Us</a></li>
+		</ul>
+		<a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-orange-300 hover:bg-orange-700 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Sign In</a>
+		<a class="hidden lg:inline-block py-2 px-6 bg-gray-500 hover:bg-orange-700 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Sign up</a>
+	</nav>
+
+	<div class="navbar-menu relative z-50 hidden">
+		<div class="navbar-backdrop fixed inset-0 bg-gray-400 opacity-25"></div>
+		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+			<div class="flex items-center mb-8">
+				<a class="mr-auto text-xl font-extrabold text-zinc-700 leading-none" href="#">FoodTailor</a>
+				<button class="navbar-close">
+					<svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
+			<div>
+				<ul>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold rounded-xl text-gray-400 hover:bg-orange-50 hover:text-orange-600 duration-200" href="#">Home</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold rounded-xl text-gray-400 hover:bg-orange-50 hover:text-orange-600 duration-200" href="#">New Recipe</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold rounded-xl text-gray-400 hover:bg-orange-50 hover:text-orange-600 duration-200" href="#">Browse Recipes</a>
+					</li>
+					<li class="mb-1">
+						<a class="block p-4 text-sm font-semibold rounded-xl text-gray-400 hover:bg-orange-50 hover:text-orange-600 duration-200" href="#">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mt-auto">
+				<div class="pt-6">
+					<a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-orange-300 hover:bg-orange-700  duration-300 rounded-xl" href="#">Sign in</a>
+					<a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-gray-500 hover:bg-orange-700   duration-300 rounded-xl" href="#">Sign Up</a>
+				</div>
+			</div>
+		</nav>
+	</div>
 
 
-            <a href="#" class="px-6 py-3 text-lg font-semibold bg-orange-300 text-white hover:bg-orange-700 rounded-xl">Sign up</a>
-            <a href="#" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white hover:bg-orange-700 rounded-xl">Log in</a>
-        </div>
+	<script>
+		// Burger menus
+		document.addEventListener('DOMContentLoaded', function() {
+			// open
+			const burger = document.querySelectorAll('.navbar-burger');
+			const menu = document.querySelectorAll('.navbar-menu');
 
-    </nav>
+			if (burger.length && menu.length) {
+				for (var i = 0; i < burger.length; i++) {
+					burger[i].addEventListener('click', function() {
+						for (var j = 0; j < menu.length; j++) {
+							menu[j].classList.toggle('hidden');
+						}
+					});
+				}
+			}
+
+			// close
+			const close = document.querySelectorAll('.navbar-close');
+			const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+			if (close.length) {
+				for (var i = 0; i < close.length; i++) {
+					close[i].addEventListener('click', function() {
+						for (var j = 0; j < menu.length; j++) {
+							menu[j].classList.toggle('hidden');
+						}
+					});
+				}
+			}
+
+			if (backdrop.length) {
+				for (var i = 0; i < backdrop.length; i++) {
+					backdrop[i].addEventListener('click', function() {
+						for (var j = 0; j < menu.length; j++) {
+							menu[j].classList.toggle('hidden');
+						}
+					});
+				}
+			}
+		});
+	</script>
     <div class="px-6 py-6">
         {% block content %}
         {% endblock %}
