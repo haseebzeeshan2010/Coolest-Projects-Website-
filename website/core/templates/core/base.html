@@ -8,11 +8,11 @@
     <title>{% block title %}{% endblock %} | Puddle</title>
 </head>
 <body>
-    <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200 bg-orange-100">
+    <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200 bg-amber-50">
         <div class="space-x-6">
-            <a href="/" class="text-xl font-semibold text-gray-400">RecipeMate</a>
-            <a href="#" class="text-lg font-semibold hover:text-gray-500">New recipe</a>
-            <a href="#" class="text-lg font-semibold hover:text-gray-500">Browse</a>
+            <a href="/" class="text-xl font-extrabold text-zinc-700">RecipeMate(not)</a>
+            <a href="#" class="text-lg text-zinc-500 font-semibold hover:text-gray-500">New recipe</a>
+            <a href="#" class="text-lg text-zinc-500 font-semibold hover:text-gray-500">Browse</a>
         </div>
         <div class="space-x-6">
 
@@ -22,6 +22,12 @@
         </div>
 
     </nav>
+    <div class="py-6 text-center space-y-7">
+        <h1 class="text-4xl font-bold">THIS IS A TITLE</h1>
+    </div>
+    <div class="py-6 text-center">
+        <p class="text-xl px-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at sem magna. Maecenas ullamcorper nisl eros, at efficitur enim ultrices in. Curabitur vel odio eget ex maximus tincidunt vitae id augue. Pellentesque condimentum vitae quam at consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque ut ipsum at mauris blandit auctor. Phasellus interdum congue ullamcorper. Etiam porta orci est, sed dignissim dui vehicula pretium. Maecenas condimentum iaculis lectus, a rutrum elit mollis in. Pellentesque sollicitudin nulla orci, eget volutpat lorem elementum ut. Aliquam erat volutpat.</p>
+    </div>
     <div class="px-6 py-6">
         {% block content %}
         {% endblock %}
