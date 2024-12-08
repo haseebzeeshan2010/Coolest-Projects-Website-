@@ -1,9 +1,16 @@
 from django.shortcuts import render
 import google.generativeai as genai
 from decouple import config
+from .models import Recipes
 # Create your views here.
 def index(request):
     return render(request, 'core/index.html')
+
+def browse(request):
+    data = Recipes.objects.all()
+    return render(request, 'core/browse.html', {'data': data})
+
+
 
 def ai(request):
     response = ""
