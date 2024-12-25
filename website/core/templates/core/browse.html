@@ -4,6 +4,13 @@
 
 {% block content %}
     {% for item in data %}
-        <li>{{ item.name }}: {{ item.recipe }}</li>
+
+
+        <div class="pt-20 pb-10 text-center">
+            <h1 class="text-4xl font-bold">{{ item.name }}</h1>
+        </div>
+        <div class="mx-10 py-6 text-center bg-gray-200 rounded-xl">
+            <p class="text-xl px-5">{{ item.recipe }}</p>
+        </div>
     {% endfor %}
 {% endblock %}
